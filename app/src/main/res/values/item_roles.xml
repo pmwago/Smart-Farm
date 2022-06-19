@@ -1,0 +1,8 @@
+<resources>
+    <string-array name="role_array">
+        <item>Cattle employee</item>
+        <item>Chicken employee</item>
+        <item>Pig employee</item>
+        <item>Goat employee</item>
+    </string-array>
+</resources>

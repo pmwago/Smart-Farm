@@ -3,7 +3,9 @@ package com.example.smartfarm;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -99,10 +101,21 @@ public class MainActivity extends AppCompatActivity {
                         for (DataSnapshot data : dataSnapshot.getChildren()) {
                             thisEmail = data.child("email").getValue().toString().trim();
                             thisPassword = data.child("password").getValue().toString().trim();
+                            String thisROLE=data.child("userRole").getValue().toString().trim();
+                            String thisFullName=data.child("name").getValue().toString().trim();
+
 
                             if(email.equals(thisEmail) && password.equals(thisPassword)) {
 
                                 Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_SHORT).show();
+
+                                SharedPreferences sharedpreferences = getSharedPreferences("myPreferences", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedpreferences.edit();
+                                editor.putString("email", thisEmail);
+                                editor.putString("role", thisROLE);
+                                editor.putString("name", thisFullName);
+                                editor.commit();
+
                                 Intent home = new Intent(getApplicationContext(), Home.class);
                                 startActivity(home);
                             } else if(!email.equals(thisEmail) && !password.equals(thisPassword)) {

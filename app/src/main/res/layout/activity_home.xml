@@ -6,15 +6,125 @@
     android:layout_height="match_parent"
     android:padding="15dp"
     tools:context=".Home">
-
-    <TextView
+    <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home"
-        android:textSize="30sp"
-        android:layout_marginTop="35dp"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/text"/>
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+       <DatePicker
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:datePickerMode="spinner"
+           android:id="@+id/calendar"/>
+
+            <EditText
+                android:id="@+id/cattle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/calendar"
+                android:layout_marginTop="25dp"
+                android:hint="Amount of milk"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/milkPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/calendar"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="25dp"
+                android:hint="Price per litre"
+                android:layout_toRightOf="@+id/cattle"
+                />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/chicken"
+                android:hint="Amount of eggs"
+                android:layout_below="@+id/cattle"
+                android:layout_marginTop="25dp"
+                android:inputType="number"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/eggsPrice"
+                android:layout_toRightOf="@+id/chicken"
+                android:layout_marginLeft="60dp"
+                android:layout_below="@+id/cattle"
+                android:layout_marginTop="25dp"
+                android:hint="Price per egg"
+                />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/pigs"
+                android:hint="Number of pigs"
+                android:layout_below="@+id/chicken"
+                android:layout_marginTop="25dp"
+                android:inputType="number"
+                />
+
+            <EditText
+                android:id="@+id/porkPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/chicken"
+                android:layout_marginLeft="63dp"
+                android:layout_marginTop="25dp"
+                android:layout_toRightOf="@+id/pigs"
+                android:hint="Price per pig" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/goats"
+                android:hint="Number of goats"
+                android:layout_below="@+id/pigs"
+                android:layout_marginTop="25dp"
+                android:inputType="number"
+                />
+
+            <EditText
+                android:id="@+id/muttonPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pigs"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="25dp"
+                android:layout_toRightOf="@+id/goats"
+                android:hint="Price per goat" />
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/price"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/goats"
+                android:text="Total Price"
+                android:layout_centerHorizontal="true"
+                />
 
 
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/price"
+                android:layout_marginTop="10dp"
+                android:text="SUBMIT" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/logout"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/submit"
+                android:text="LOGOUT"
+                android:layout_centerHorizontal="true"
+                />
+
+        </RelativeLayout>
+
+    </ScrollView>
 </RelativeLayout>
