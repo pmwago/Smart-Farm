@@ -26,8 +26,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/calendar"
                 android:layout_marginTop="25dp"
-                android:hint="Amount of milk"
-                android:inputType="number" />
+                android:hint="Amount of milk in litres"
+                android:inputType="numberDecimal" />
 
             <EditText
                 android:id="@+id/milkPrice"
@@ -37,6 +37,7 @@
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="25dp"
                 android:hint="Price per litre"
+                android:inputType="numberDecimal"
                 android:layout_toRightOf="@+id/cattle"
                 />
             <EditText
@@ -46,7 +47,7 @@
                 android:hint="Amount of eggs"
                 android:layout_below="@+id/cattle"
                 android:layout_marginTop="25dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 />
             <EditText
                 android:layout_width="match_parent"
@@ -57,6 +58,7 @@
                 android:layout_below="@+id/cattle"
                 android:layout_marginTop="25dp"
                 android:hint="Price per egg"
+                android:inputType="numberDecimal"
                 />
             <EditText
                 android:layout_width="wrap_content"
@@ -65,7 +67,7 @@
                 android:hint="Number of pigs"
                 android:layout_below="@+id/chicken"
                 android:layout_marginTop="25dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 />
 
             <EditText
@@ -76,6 +78,7 @@
                 android:layout_marginLeft="63dp"
                 android:layout_marginTop="25dp"
                 android:layout_toRightOf="@+id/pigs"
+                android:inputType="numberDecimal"
                 android:hint="Price per pig" />
             <EditText
                 android:layout_width="wrap_content"
@@ -84,7 +87,7 @@
                 android:hint="Number of goats"
                 android:layout_below="@+id/pigs"
                 android:layout_marginTop="25dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 />
 
             <EditText
@@ -94,6 +97,7 @@
                 android:layout_below="@+id/pigs"
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="25dp"
+                android:inputType="numberDecimal"
                 android:layout_toRightOf="@+id/goats"
                 android:hint="Price per goat" />
             <TextView
@@ -108,7 +112,7 @@
 
 
             <Button
-                android:id="@+id/submit"
+                android:id="@+id/submit1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/price"
@@ -119,7 +123,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/logout"
                 android:layout_marginTop="20dp"
-                android:layout_below="@id/submit"
+                android:layout_below="@id/submit1"
                 android:text="LOGOUT"
                 android:layout_centerHorizontal="true"
                 />

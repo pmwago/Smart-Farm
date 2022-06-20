@@ -27,7 +27,8 @@ public class Home extends AppCompatActivity {
 
     private EditText textMilk,textEggs,textGoats,textPigs,milkAmount,eggsAmount,goatsAmount,pigsAmount;
     private TextView price;
-    Button submit,logout;
+    Button submit;
+    TextView logout;
     private DatePicker datePicker;
     SharedPreferences sharedPreferences;
     FirebaseDatabase database=FirebaseDatabase.getInstance();
@@ -37,8 +38,8 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        submit=findViewById(R.id.submit);
-        logout.findViewById(R.id.logout);
+        submit=findViewById(R.id.submit1);
+        logout=findViewById(R.id.logout);
         textMilk=findViewById(R.id.cattle);
         textGoats=findViewById(R.id.goats);
         textPigs=findViewById(R.id.pigs);
@@ -114,17 +115,10 @@ public class Home extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int milkQty = Integer.parseInt(textMilk.getText().toString().trim());
-                int eggsQty = Integer.parseInt(textEggs.getText().toString().trim());
-                int goatsQty = Integer.parseInt(textGoats.getText().toString().trim());
-                int pigsQty = Integer.parseInt(textPigs.getText().toString().trim());
-
-                int milkPrice = Integer.parseInt(milkAmount.getText().toString().trim());
-                int eggsPrice = Integer.parseInt(eggsAmount.getText().toString().trim());
-                int goatsPrice = Integer.parseInt(goatsAmount.getText().toString().trim());
-                int pigsPrice = Integer.parseInt(pigsAmount.getText().toString().trim());
 
                 if (role.equals("Cattle employee")) {
+                    double milkQty = Double.parseDouble(textMilk.getText().toString().trim());
+                    double milkPrice = Double.parseDouble(milkAmount.getText().toString().trim());
                     double amt = milkPrice * milkQty;
                     price.setText(String.valueOf(amt));
                     price.setVisibility(View.VISIBLE);
@@ -154,6 +148,8 @@ public class Home extends AppCompatActivity {
 
                 }
                 if (role.equals("Goat employee")) {
+                    double goatsQty = Double.parseDouble(textGoats.getText().toString().trim());
+                    double goatsPrice = Double.parseDouble(goatsAmount.getText().toString().trim());
                     double amt = goatsPrice * goatsQty;
                     price.setText(String.valueOf(amt));
                     price.setVisibility(View.VISIBLE);
@@ -181,6 +177,8 @@ public class Home extends AppCompatActivity {
                     });
                 }
                 if (role.equals("Pig employee")) {
+                    double pigsQty = Double.parseDouble(textPigs.getText().toString().trim());
+                    double pigsPrice = Double.parseDouble(pigsAmount.getText().toString().trim());
                     double amt = pigsPrice * pigsQty;
                     price.setText(String.valueOf(amt));
                     price.setVisibility(View.VISIBLE);
@@ -208,6 +206,8 @@ public class Home extends AppCompatActivity {
                     });
                 }
                 if (role.equals("Chicken employee")) {
+                    double eggsQty = Double.parseDouble(textEggs.getText().toString().trim());
+                    double eggsPrice = Double.parseDouble(eggsAmount.getText().toString().trim());
                     double amt = eggsPrice * eggsQty;
                     price.setText(String.valueOf(amt));
                     price.setVisibility(View.VISIBLE);
