@@ -14,11 +14,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-       <DatePicker
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:datePickerMode="spinner"
-           android:id="@+id/calendar"/>
+            <DatePicker
+                android:id="@+id/calendar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:datePickerMode="spinner" />
 
             <EditText
                 android:id="@+id/cattle"
@@ -36,39 +36,38 @@
                 android:layout_below="@+id/calendar"
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="25dp"
-                android:hint="Price per litre"
-                android:inputType="numberDecimal"
                 android:layout_toRightOf="@+id/cattle"
-                />
+                android:hint="Price per litre"
+                android:inputType="numberDecimal" />
+
             <EditText
+                android:id="@+id/chicken"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/chicken"
-                android:hint="Amount of eggs"
                 android:layout_below="@+id/cattle"
                 android:layout_marginTop="25dp"
-                android:inputType="numberDecimal"
-                />
+                android:hint="Amount of eggs"
+                android:inputType="numberDecimal" />
+
             <EditText
+                android:id="@+id/eggsPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/eggsPrice"
-                android:layout_toRightOf="@+id/chicken"
-                android:layout_marginLeft="60dp"
                 android:layout_below="@+id/cattle"
+                android:layout_marginLeft="60dp"
                 android:layout_marginTop="25dp"
+                android:layout_toRightOf="@+id/chicken"
                 android:hint="Price per egg"
-                android:inputType="numberDecimal"
-                />
+                android:inputType="numberDecimal" />
+
             <EditText
+                android:id="@+id/pigs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/pigs"
-                android:hint="Number of pigs"
                 android:layout_below="@+id/chicken"
                 android:layout_marginTop="25dp"
-                android:inputType="numberDecimal"
-                />
+                android:hint="Number of pigs"
+                android:inputType="numberDecimal" />
 
             <EditText
                 android:id="@+id/porkPrice"
@@ -78,17 +77,17 @@
                 android:layout_marginLeft="63dp"
                 android:layout_marginTop="25dp"
                 android:layout_toRightOf="@+id/pigs"
-                android:inputType="numberDecimal"
-                android:hint="Price per pig" />
+                android:hint="Price per pig"
+                android:inputType="numberDecimal" />
+
             <EditText
+                android:id="@+id/goats"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/goats"
-                android:hint="Number of goats"
                 android:layout_below="@+id/pigs"
                 android:layout_marginTop="25dp"
-                android:inputType="numberDecimal"
-                />
+                android:hint="Number of goats"
+                android:inputType="numberDecimal" />
 
             <EditText
                 android:id="@+id/muttonPrice"
@@ -97,36 +96,47 @@
                 android:layout_below="@+id/pigs"
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="25dp"
-                android:inputType="numberDecimal"
                 android:layout_toRightOf="@+id/goats"
-                android:hint="Price per goat" />
+                android:hint="Price per goat"
+                android:inputType="numberDecimal" />
+
+
+
+
             <TextView
+                android:id="@+id/price"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/price"
-                android:layout_marginTop="20dp"
                 android:layout_below="@id/goats"
-                android:text="Total Price"
                 android:layout_centerHorizontal="true"
-                />
-
+                android:layout_marginLeft="62dp"
+                android:layout_marginTop="16dp"
+                android:text="Total Price" />
 
             <Button
                 android:id="@+id/submit1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/price"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="17dp"
                 android:text="SUBMIT" />
+
+            <Button
+                android:id="@+id/ToInputCost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/submit1"
+                android:layout_marginTop="17dp"
+                android:text="Key In Monthly Costs" />
+
             <TextView
+                android:id="@+id/logout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/logout"
-                android:layout_marginTop="20dp"
-                android:layout_below="@id/submit1"
-                android:text="LOGOUT"
+                android:layout_below="@id/ToInputCost"
                 android:layout_centerHorizontal="true"
-                />
+                android:layout_marginTop="20dp"
+                android:text="LOGOUT" />
 
         </RelativeLayout>
 

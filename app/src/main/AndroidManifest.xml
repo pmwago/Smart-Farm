@@ -9,7 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartFarm">
-
+        <activity
+            android:name=".Dashboard"
+            android:exported="false" />
+        <activity
+            android:name=".OwnerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".inputActivity"
+            android:exported="false" />
         <activity
             android:name=".Forgot"
             android:exported="false" />
@@ -23,7 +31,8 @@
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />BVH
+                <action android:name="android.intent.action.MAIN" />
+                BVH
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
