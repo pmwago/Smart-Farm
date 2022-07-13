@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/HH/AndroidStudioProjects/Smart-Farm/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.1495" />
+        <entry key="..\:/Users/HH/AndroidStudioProjects/Smart-Farm/app/src/main/res/drawable/ic_baseline_keypass.xml" value="0.1495" />
+        <entry key="..\:/Users/HH/AndroidStudioProjects/Smart-Farm/app/src/main/res/drawable/ic_dashboard.xml" value="0.1495" />
+        <entry key="..\:/Users/HH/AndroidStudioProjects/Smart-Farm/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/Users/HH/AndroidStudioProjects/Smart-Farm/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/HH/AndroidStudioProjects/Smart-Farm/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/Users/peter/AndroidStudioProjects/SmartFarm/app/src/main/res/layout/activity_forgot.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/peter/AndroidStudioProjects/SmartFarm/app/src/main/res/layout/activity_home.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/peter/AndroidStudioProjects/SmartFarm/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
