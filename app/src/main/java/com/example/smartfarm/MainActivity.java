@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         private Button login;
     FirebaseDatabase database=FirebaseDatabase.getInstance();
     DatabaseReference ref;
+    SharedPreferences sharedPreferences;
     String thisEmail;
     String thisPassword;
 
@@ -43,6 +44,19 @@ public class MainActivity extends AppCompatActivity {
             forgot=findViewById(R.id.forgot);
             register=findViewById(R.id.register);
             login=findViewById(R.id.login);
+
+            sharedPreferences = getSharedPreferences("myPreferences", MODE_PRIVATE);
+            String SHPrefemail= sharedPreferences.getString("email", null);
+
+            if(SHPrefemail !=null && SHPrefemail.equals("owner@gmail.com")) {
+                Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+                startActivity(intent);
+            }else if( SHPrefemail !=null && !SHPrefemail.equals("owner@gmail.com")) {
+                Intent home = new Intent(getApplicationContext(), Home.class);
+                startActivity(home);
+            }else {
+
+            }
 
             login.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -93,46 +107,60 @@ public class MainActivity extends AppCompatActivity {
             }
 
             else {
+                if(email.equals("owner@gmail.com") && password.equals("123456")) {
 
-                ref=database.getReference().child("Users");
-                ref.addListenerForSingleValueEvent(new ValueEventListener(){
-                    @Override
-                    public void onDataChange (DataSnapshot dataSnapshot) {
-                        for (DataSnapshot data : dataSnapshot.getChildren()) {
-                            thisEmail = data.child("email").getValue().toString().trim();
-                            thisPassword = data.child("password").getValue().toString().trim();
-                            String thisROLE=data.child("userRole").getValue().toString().trim();
-                            String thisFullName=data.child("name").getValue().toString().trim();
+                    SharedPreferences sharedpreferences = getSharedPreferences("myPreferences", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                    editor.putString("email", "owner@gmail.com");
+                    editor.putString("role", "THEOWNER");
+                    editor.putString("name", "FARM OWNER");
+                    editor.commit();
+
+                    Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+                    startActivity(intent);
+                }else {
+
+                    ref=database.getReference().child("Users");
+                    ref.addListenerForSingleValueEvent(new ValueEventListener(){
+                        @Override
+                        public void onDataChange (DataSnapshot dataSnapshot) {
+                            for (DataSnapshot data : dataSnapshot.getChildren()) {
+                                thisEmail = data.child("email").getValue().toString().trim();
+                                thisPassword = data.child("password").getValue().toString().trim();
+                                String thisROLE=data.child("userRole").getValue().toString().trim();
+                                String thisFullName=data.child("name").getValue().toString().trim();
 
 
-                            if(email.equals(thisEmail) && password.equals(thisPassword)) {
+                                if(email.equals(thisEmail) && password.equals(thisPassword)) {
 
-                                Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_SHORT).show();
 
-                                SharedPreferences sharedpreferences = getSharedPreferences("myPreferences", Context.MODE_PRIVATE);
-                                SharedPreferences.Editor editor = sharedpreferences.edit();
-                                editor.putString("email", thisEmail);
-                                editor.putString("role", thisROLE);
-                                editor.putString("name", thisFullName);
-                                editor.commit();
+                                    SharedPreferences sharedpreferences = getSharedPreferences("myPreferences", Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                                    editor.putString("email", thisEmail);
+                                    editor.putString("role", thisROLE);
+                                    editor.putString("name", thisFullName);
+                                    editor.commit();
 
-                                Intent home = new Intent(getApplicationContext(), Home.class);
-                                startActivity(home);
-                            } else if(!email.equals(thisEmail) && !password.equals(thisPassword)) {
-                                Toast.makeText(getApplicationContext(), "Wrong credentials", Toast.LENGTH_SHORT).show();
+                                    Intent home = new Intent(getApplicationContext(), Home.class);
+                                    startActivity(home);
+                                } else if(!email.equals(thisEmail) && !password.equals(thisPassword)) {
+                                    Toast.makeText(getApplicationContext(), "Wrong credentials", Toast.LENGTH_SHORT).show();
+                                }
+
+                                textEmail.setText("");
+                                pass.setText("");
                             }
 
-                            textEmail.setText("");
-                            pass.setText("");
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
                         }
 
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                    });
+                }
 
-                    }
-
-                });
 
             }
         }

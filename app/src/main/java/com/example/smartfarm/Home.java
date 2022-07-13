@@ -2,6 +2,7 @@ package com.example.smartfarm;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,18 +23,21 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Home extends AppCompatActivity {
 
     private EditText textMilk,textEggs,textGoats,textPigs,milkAmount,eggsAmount,goatsAmount,pigsAmount;
     private TextView price;
-    Button submit;
+    Button submit,ToInputCost;
     TextView logout;
     private DatePicker datePicker;
     SharedPreferences sharedPreferences;
     FirebaseDatabase database=FirebaseDatabase.getInstance();
     DatabaseReference ref;
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,13 +50,80 @@ public class Home extends AppCompatActivity {
         textPigs=findViewById(R.id.pigs);
         textEggs=findViewById(R.id.chicken);
         price=findViewById(R.id.price);
-
+        ToInputCost = findViewById(R.id.ToInputCost);
         milkAmount=findViewById(R.id.milkPrice);
         eggsAmount=findViewById(R.id.eggsPrice);
         goatsAmount=findViewById(R.id.muttonPrice);
         pigsAmount=findViewById(R.id.porkPrice);
-
         datePicker=findViewById(R.id.calendar);
+
+        //To check If Date in DB and current Date match to restrict duplicate monthly entries
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        String TheDate = dtf.format(now);
+
+        DatabaseReference refr = FirebaseDatabase.getInstance().getReference().child("animalCostInputs");
+        refr.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+
+                    if(data!=null && !data.equals("") && !data.exists()) {
+
+                        String DBDate = data.child("TheDate").getValue().toString();
+                        if (TheDate.equals(DBDate)) {
+                            ToInputCost.setVisibility(View.GONE);
+                        }else if(!TheDate.equals(DBDate)) {
+
+                            //check if owner has activated BTN
+
+
+                            DatabaseReference ownerREF = FirebaseDatabase.getInstance().getReference().child("ownerStatusOnBTNActivation");
+                            ownerREF.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    for (DataSnapshot data : dataSnapshot.getChildren()) {
+                                        String status = data.child("BTNStatus").getValue().toString();
+                                        if (status.equals("ACTIVATE")) {
+                                            ToInputCost.setVisibility(View.VISIBLE);
+                                        }else {
+                                            ToInputCost.setVisibility(View.GONE);
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+
+                            });
+
+                        }
+                    }
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+
+        });
+
+
+
+        ToInputCost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), inputActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         String day = "Day = " + datePicker.getDayOfMonth();
         String month = "Month = " + (datePicker.getMonth() + 1);
