@@ -40,6 +40,8 @@ public class inputActivity extends AppCompatActivity {
         String role= sharedPreferences.getString("role", null);
         String name= sharedPreferences.getString("name", null);
 
+
+
         if (role.equals("Cattle employee")){
 
             animalText.setText("CATTLE INPUT PRICE:");
@@ -56,7 +58,7 @@ public class inputActivity extends AppCompatActivity {
         }
         else  if (role.equals("Goat employee")){
 
-            animalText.setText("CATTLE INPUT PRICE:");
+            animalText.setText("GOAT INPUT PRICE:");
 
         }
 
@@ -66,61 +68,66 @@ public class inputActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-               String inputCost = inputPrice.getText().toString();
-                String inputDetails = inputItems.getText().toString();
+                if (inputPrice.getText().toString().equals("")) {
+                    inputPrice.setError("Field required");
+                } else if (inputItems.getText().toString().equals("")) {
+                    inputItems.setError("Field required");
+                } else {
+                    String inputCost = inputPrice.getText().toString();
+                    String inputDetails = inputItems.getText().toString();
 
-                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-                LocalDateTime now = LocalDateTime.now();
-               String TheDate = dtf.format(now);
+                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                    LocalDateTime now = LocalDateTime.now();
+                    String TheDate = dtf.format(now);
 
-                if (role.equals("Cattle employee")){
+                    if (role.equals("Cattle employee")) {
 
-                   String theRole = "Cattle";
+                        String theRole = "Cattle";
 
-                    String id=ref.push().getKey();
-                    AnimalInputs nimalInputs = new AnimalInputs(theRole,inputCost,TheDate,inputDetails);
-                    ref.child(id).setValue(nimalInputs);
-                    Toast.makeText(getApplicationContext(), "Monthly Record inserted", Toast.LENGTH_SHORT).show();
+                        String id = ref.push().getKey();
+                        AnimalInputs nimalInputs = new AnimalInputs(theRole, inputCost, TheDate, inputDetails);
+                        ref.child(id).setValue(nimalInputs);
+                        Toast.makeText(getApplicationContext(), "Monthly Record inserted", Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(getApplicationContext(), Home.class);
-                    startActivity(intent);
+                        Intent intent = new Intent(getApplicationContext(), Home.class);
+                        startActivity(intent);
+                    } else if (role.equals("Chicken employee")) {
+                        String theRole = "Chicken";
+                        String id = ref.push().getKey();
+                        AnimalInputs nimalInputs = new AnimalInputs(theRole, inputCost, TheDate, inputDetails);
+                        ref.child(id).setValue(nimalInputs);
+                        Toast.makeText(getApplicationContext(), "Monthly Record inserted", Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(getApplicationContext(), Home.class);
+                        startActivity(intent);
+                    } else if (role.equals("Pig employee")) {
+                        String theRole = "Pigs";
+                        String id = ref.push().getKey();
+                        AnimalInputs nimalInputs = new AnimalInputs(theRole, inputCost, TheDate, inputDetails);
+                        ref.child(id).setValue(nimalInputs);
+                        Toast.makeText(getApplicationContext(), "Monthly Record inserted", Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(getApplicationContext(), Home.class);
+                        startActivity(intent);
+
+                    } else if (role.equals("Goat employee")) {
+
+                        String theRole = "Goat";
+                        String id = ref.push().getKey();
+                        AnimalInputs nimalInputs = new AnimalInputs(theRole, inputCost, TheDate, inputDetails);
+                        ref.child(id).setValue(nimalInputs);
+                        Toast.makeText(getApplicationContext(), "Monthly Record inserted", Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(getApplicationContext(), Home.class);
+                        startActivity(intent);
+                    }
+
                 }
-                else  if (role.equals("Chicken employee")){
-                    String theRole = "Chicken";
-                    String id=ref.push().getKey();
-                    AnimalInputs nimalInputs = new AnimalInputs(theRole,inputCost,TheDate,inputDetails);
-                    ref.child(id).setValue(nimalInputs);
-                    Toast.makeText(getApplicationContext(), "Monthly Record inserted", Toast.LENGTH_SHORT).show();
-
-                    Intent intent = new Intent(getApplicationContext(), Home.class);
-                    startActivity(intent);
-                }
-                else if (role.equals("Pig employee")){
-                    String theRole = "Pigs";
-                    String id=ref.push().getKey();
-                    AnimalInputs nimalInputs = new AnimalInputs(theRole,inputCost,TheDate,inputDetails);
-                    ref.child(id).setValue(nimalInputs);
-                    Toast.makeText(getApplicationContext(), "Monthly Record inserted", Toast.LENGTH_SHORT).show();
-
-                    Intent intent = new Intent(getApplicationContext(), Home.class);
-                    startActivity(intent);
-
-                }
-                else if (role.equals("Goat employee")){
-
-                    String theRole = "Goat";
-                    String id=ref.push().getKey();
-                    AnimalInputs nimalInputs = new AnimalInputs(theRole,inputCost,TheDate,inputDetails);
-                    ref.child(id).setValue(nimalInputs);
-                    Toast.makeText(getApplicationContext(), "Monthly Record inserted", Toast.LENGTH_SHORT).show();
-
-                    Intent intent = new Intent(getApplicationContext(), Home.class);
-                    startActivity(intent);
-                }
-
             }
-        });
+            });
 
 
-    }
+
+        }
+
 }

@@ -3,9 +3,11 @@ package com.example.smartfarm;
 public class AnimalInputs {
     String role; String cost;String TheDate;String inputDetails;
 
-    public AnimalInputs(String role, String cost, String TheDate,String inputDetails) {
+    public AnimalInputs(String role, String cost, String theDate, String inputDetails) {
         this.role = role;
         this.cost = cost;
+        TheDate = theDate;
+        this.inputDetails = inputDetails;
     }
 
     public String getRole() {

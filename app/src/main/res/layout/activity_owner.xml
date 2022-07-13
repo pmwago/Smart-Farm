@@ -26,87 +26,83 @@
 
 
     <TableLayout
+        android:id="@+id/inputs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textDate"
-        android:id="@+id/inputs"
         android:layout_marginTop="30dp"
-        android:padding="15dp">
+        android:padding="10dp">
 
         <TableRow>
+
             <TextView
-                android:text="Input"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
                 android:padding="30dp"
-                />
+                android:text="Input" />
 
             <TextView
-                android:text="Cost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
                 android:padding="30dp"
-                />
+                android:text="Cost" />
+
             <TextView
-                android:text="Output"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="3"
                 android:padding="30dp"
-                />
+                android:text="Output" />
 
             <TextView
-                android:text="Revenue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="4"
                 android:padding="30dp"
-                />
+                android:text="Revenue" />
         </TableRow>
 
         <TableRow>
+
             <TextView
                 android:id="@+id/input"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:padding="30dp"
-                />
+                android:padding="5dp" />
 
             <TextView
                 android:id="@+id/cost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
-                android:padding="30dp"
-                />
+                android:padding="5dp" />
+
             <TextView
                 android:id="@+id/output"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="3"
-                android:padding="30dp"
-                />
+                android:padding="5dp" />
 
             <TextView
                 android:id="@+id/revenue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="4"
-                android:padding="30dp"
-                />
+                android:padding="5dp" />
         </TableRow>
     </TableLayout>
 
     <TableLayout
+        android:id="@+id/table"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/inputs"
-        android:id="@+id/table"
         android:layout_marginTop="30dp"
-        android:padding="30dp">
+        android:padding="10dp">
 
         <TableRow>
 
@@ -114,38 +110,46 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="1"
-                android:padding="10dp"
+                android:padding="0dp"
                 android:text="TOTAL COST" />
 
             <TextView
                 android:id="@+id/totalCost"
-                android:layout_width="70dp"
+                android:layout_width="87dp"
                 android:layout_height="wrap_content"
                 android:layout_column="2"
-                android:padding="30dp" />
+                android:padding="10dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="3"
-                android:text="TOTAL profit"
-                android:padding="10dp" />
+                android:padding="10dp"
+                android:text="TOTAL profit" />
 
             <TextView
                 android:id="@+id/totalProfit"
-                android:layout_width="70dp"
+                android:layout_width="113dp"
                 android:layout_height="wrap_content"
                 android:layout_column="4"
-                android:padding="30dp" />
+                android:padding="10dp" />
         </TableRow>
     </TableLayout>
 
 
     <Button
-        android:id="@+id/activateStatus"
+        android:id="@+id/Listen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/table"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Listen" />
+    <Button
+        android:id="@+id/activateStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Listen"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:text="ACTIVATE EMPLOYEE STATUS" />

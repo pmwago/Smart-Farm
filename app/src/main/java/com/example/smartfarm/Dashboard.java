@@ -31,13 +31,11 @@ public class Dashboard extends AppCompatActivity {
                 SharedPreferences sharedpreferences = getSharedPreferences("myPreferences", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedpreferences.edit();
 
-                editor.putString("email", sharedPreferences.getString("email", null));
-                editor.putString("role", sharedPreferences.getString("role", null));
-                editor.putString("name", sharedPreferences.getString("name", null));
-                editor.putString("animal", "goats");
-                editor.apply();
+
 
                 Intent intent = new Intent(getApplicationContext(), OwnerActivity.class);
+                intent.putExtra("animal", "goats");
+
                 startActivity(intent);
             }
         });
@@ -48,14 +46,15 @@ public class Dashboard extends AppCompatActivity {
                 SharedPreferences sharedpreferences = getSharedPreferences("myPreferences", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedpreferences.edit();
 
-                editor.putString("email", sharedPreferences.getString("email", null));
-                editor.putString("role", sharedPreferences.getString("role", null));
-                editor.putString("name", sharedPreferences.getString("name", null));
-                editor.putString("animal", "pigs");
-                editor.apply();
+//                editor.putString("email", sharedPreferences.getString("email", null));
+//                editor.putString("role", sharedPreferences.getString("role", null));
+//                editor.putString("name", sharedPreferences.getString("name", null));
 
                 Intent intent = new Intent(getApplicationContext(), OwnerActivity.class);
+                intent.putExtra("animal", "pigs");
+
                 startActivity(intent);
+
             }
         });
 
@@ -65,14 +64,15 @@ public class Dashboard extends AppCompatActivity {
                 SharedPreferences sharedpreferences = getSharedPreferences("myPreferences", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedpreferences.edit();
 
-                editor.putString("email", sharedPreferences.getString("email", null));
-                editor.putString("role", sharedPreferences.getString("role", null));
-                editor.putString("name", sharedPreferences.getString("name", null));
-                editor.putString("animal", "cattle");
-                editor.apply();
+//                editor.putString("email", sharedPreferences.getString("email", null));
+//                editor.putString("role", sharedPreferences.getString("role", null));
+//                editor.putString("name", sharedPreferences.getString("name", null));
 
                 Intent intent = new Intent(getApplicationContext(), OwnerActivity.class);
+                intent.putExtra("animal", "cattle");
+
                 startActivity(intent);
+
             }
         });
 
@@ -82,16 +82,16 @@ public class Dashboard extends AppCompatActivity {
                 SharedPreferences sharedpreferences = getSharedPreferences("myPreferences", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedpreferences.edit();
 
-                String ownerEmail = sharedPreferences.getString("email", null);
-                String ownerRole = sharedPreferences.getString("role", null);
-                String ownerName = sharedPreferences.getString("name", null);
-                editor.putString("email",ownerEmail );
-                editor.putString("role", ownerRole);
-                editor.putString("name", ownerName);
-                editor.putString("animal", "chicken");
-                editor.apply();
+//                String ownerEmail = sharedPreferences.getString("email", null);
+//                String ownerRole = sharedPreferences.getString("role", null);
+//                String ownerName = sharedPreferences.getString("name", null);
+//                editor.putString("email",ownerEmail );
+//                editor.putString("role", ownerRole);
+//                editor.putString("name", ownerName);
 
                 Intent intent = new Intent(getApplicationContext(), OwnerActivity.class);
+                intent.putExtra("animal", "chicken");
+
                 startActivity(intent);
             }
         });

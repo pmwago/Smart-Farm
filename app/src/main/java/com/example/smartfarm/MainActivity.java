@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         private Button login;
     FirebaseDatabase database=FirebaseDatabase.getInstance();
     DatabaseReference ref;
+    SharedPreferences sharedPreferences;
     String thisEmail;
     String thisPassword;
 
@@ -43,6 +44,19 @@ public class MainActivity extends AppCompatActivity {
             forgot=findViewById(R.id.forgot);
             register=findViewById(R.id.register);
             login=findViewById(R.id.login);
+
+            sharedPreferences = getSharedPreferences("myPreferences", MODE_PRIVATE);
+            String SHPrefemail= sharedPreferences.getString("email", null);
+
+            if(SHPrefemail !=null && SHPrefemail.equals("owner@gmail.com")) {
+                Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+                startActivity(intent);
+            }else if( SHPrefemail !=null && !SHPrefemail.equals("owner@gmail.com")) {
+                Intent home = new Intent(getApplicationContext(), Home.class);
+                startActivity(home);
+            }else {
+
+            }
 
             login.setOnClickListener(new View.OnClickListener() {
                 @Override

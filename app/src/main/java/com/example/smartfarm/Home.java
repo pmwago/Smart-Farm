@@ -68,36 +68,41 @@ public class Home extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    String DBDate = data.child("TheDate").getValue().toString();
-                    if (TheDate.equals(DBDate)) {
-                        ToInputCost.setVisibility(View.GONE);
-                    }else if(!TheDate.equals(DBDate)) {
 
-                        //check if owner has activated BTN
+                    if(data!=null && !data.equals("") && !data.exists()) {
+
+                        String DBDate = data.child("TheDate").getValue().toString();
+                        if (TheDate.equals(DBDate)) {
+                            ToInputCost.setVisibility(View.GONE);
+                        }else if(!TheDate.equals(DBDate)) {
+
+                            //check if owner has activated BTN
 
 
-                        DatabaseReference ownerREF = FirebaseDatabase.getInstance().getReference().child("ownerStatusOnBTNActivation");
-                        ownerREF.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                for (DataSnapshot data : dataSnapshot.getChildren()) {
-                                    String status = data.child("BTNStatus").getValue().toString();
-                                    if (status.equals("ACTIVATE")) {
-                                        ToInputCost.setVisibility(View.VISIBLE);
-                                    }else {
-                                        ToInputCost.setVisibility(View.GONE);
+                            DatabaseReference ownerREF = FirebaseDatabase.getInstance().getReference().child("ownerStatusOnBTNActivation");
+                            ownerREF.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    for (DataSnapshot data : dataSnapshot.getChildren()) {
+                                        String status = data.child("BTNStatus").getValue().toString();
+                                        if (status.equals("ACTIVATE")) {
+                                            ToInputCost.setVisibility(View.VISIBLE);
+                                        }else {
+                                            ToInputCost.setVisibility(View.GONE);
+                                        }
                                     }
                                 }
-                            }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
 
-                            }
+                                }
 
-                        });
+                            });
 
+                        }
                     }
+
                 }
             }
 
@@ -113,7 +118,7 @@ public class Home extends AppCompatActivity {
         ToInputCost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), AnimalInputs.class);
+                Intent intent = new Intent(getApplicationContext(), inputActivity.class);
                 startActivity(intent);
             }
         });
