@@ -8,9 +8,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class Dashboard extends AppCompatActivity {
-    Button ChickenDir,CattleDir,PigsDir,goatsDir;
+   ImageView ChickenDir,CattleDir,PigsDir,goatsDir;
     SharedPreferences sharedPreferences;
 
     @Override

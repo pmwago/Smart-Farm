@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/HH/AndroidStudioProjects/Smart-Farm/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2275" />
+        <entry key="..\:/Users/HH/AndroidStudioProjects/Smart-Farm/app/src/main/res/drawable/ic_launcher_chicken.xml" value="0.2275" />
+        <entry key="..\:/Users/HH/AndroidStudioProjects/Smart-Farm/app/src/main/res/layout/activity_dashboard.xml" value="0.25" />
+        <entry key="..\:/Users/HH/AndroidStudioProjects/Smart-Farm/app/src/main/res/layout/activity_home.xml" value="0.10739614994934144" />
+        <entry key="..\:/Users/HH/AndroidStudioProjects/Smart-Farm/app/src/main/res/layout/activity_main.xml" value="0.10739614994934144" />
+        <entry key="..\:/Users/HH/AndroidStudioProjects/Smart-Farm/app/src/main/res/layout/activity_owner.xml" value="0.10739614994934144" />
+      </map>
+    </option>
+  </component>
+</project>
