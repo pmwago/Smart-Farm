@@ -42,7 +42,6 @@ public class Register extends AppCompatActivity {
         textEmail=findViewById(R.id.email);
         pass=findViewById(R.id.pwd);
         pwd=findViewById(R.id.confPwd);
-        textLivestock=findViewById(R.id.livestock);
         register=findViewById(R.id.register);
         spinner = (Spinner) findViewById(R.id.role);
 
