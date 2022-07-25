@@ -33,7 +33,7 @@ public class OwnerActivity extends AppCompatActivity {
     FirebaseDatabase database=FirebaseDatabase.getInstance();
     DatabaseReference ref,refl,reffw;
     double totalReturn = 0;
-    TextToSpeech t1;    //initialize
+    TextToSpeech t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14;    //initialize
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -76,6 +76,117 @@ public class OwnerActivity extends AppCompatActivity {
             }
         });
 
+        t2=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t2.setLanguage(Locale.UK);
+                }
+            }
+        });
+
+        t3=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t3.setLanguage(Locale.UK);
+                }
+            }
+        });
+
+        t4=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t4.setLanguage(Locale.UK);
+                }
+            }
+        });
+
+        t5=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t5.setLanguage(Locale.UK);
+                }
+            }
+        });
+
+        t6=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t6.setLanguage(Locale.UK);
+                }
+            }
+        });
+        t7=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t7.setLanguage(Locale.UK);
+                }
+            }
+        });
+        t8=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t8.setLanguage(Locale.UK);
+                }
+            }
+        });
+        t9=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t9.setLanguage(Locale.UK);
+                }
+            }
+        });
+        t10=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t10.setLanguage(Locale.UK);
+                }
+            }
+        });
+        t11=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t11.setLanguage(Locale.UK);
+                }
+            }
+        });
+        t12=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t12.setLanguage(Locale.UK);
+                }
+            }
+        });
+        t13=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t13.setLanguage(Locale.UK);
+                }
+            }
+        });
+        t14=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t14.setLanguage(Locale.UK);
+                }
+            }
+        });
+
+
+
 
         listen.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,57 +195,57 @@ public class OwnerActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
                 t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
 
-                toSpeak = TheTextDate.getText().toString();
+                String toSpeak1 = TheTextDate.getText().toString();
                 Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
-                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+                t2.speak(toSpeak1, TextToSpeech.QUEUE_FLUSH, null);
 
-                 toSpeak = inputTV.getText().toString();
+                String toSpeak2 = inputTV.getText().toString();
                 Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
-                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+                t3.speak(toSpeak2, TextToSpeech.QUEUE_FLUSH, null);
 
-                 toSpeak = input.getText().toString();
+                String toSpeak3 = input.getText().toString();
                 Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
-                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+                t4.speak(toSpeak3, TextToSpeech.QUEUE_FLUSH, null);
 
-                 toSpeak = inputCost.getText().toString();
+                String toSpeak4 = inputCost.getText().toString();
                 Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
-                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+                t5.speak(toSpeak4, TextToSpeech.QUEUE_FLUSH, null);
 
                  toSpeak = cost.getText().toString();
                 Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
-                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+                t6.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
 
-                 toSpeak = outputTV.getText().toString();
+                String toSpeak5 = outputTV.getText().toString();
                 Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
-                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+                t7.speak(toSpeak5, TextToSpeech.QUEUE_FLUSH, null);
 
-                 toSpeak = output.getText().toString();
+                String toSpeak6 = output.getText().toString();
                 Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
-                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+                t8.speak(toSpeak6, TextToSpeech.QUEUE_FLUSH, null);
 
-                 toSpeak = TheRev.getText().toString();
+                String toSpeak7 = TheRev.getText().toString();
                 Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
-                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+                t9.speak(toSpeak7, TextToSpeech.QUEUE_FLUSH, null);
 
-                 toSpeak = revenue.getText().toString();
+                String toSpeak8 = revenue.getText().toString();
                 Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
-                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+                t10.speak(toSpeak8, TextToSpeech.QUEUE_FLUSH, null);
 
-                 toSpeak = TotalCostTV.getText().toString();
+                String toSpeak9 = TotalCostTV.getText().toString();
                 Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
-                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+                t11.speak(toSpeak9, TextToSpeech.QUEUE_FLUSH, null);
 
-                 toSpeak = totalCost.getText().toString();
+                String toSpeak10 = totalCost.getText().toString();
                 Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
-                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+                t12.speak(toSpeak10, TextToSpeech.QUEUE_FLUSH, null);
 
-                 toSpeak = TotalCostProfitTV.getText().toString();
+                String toSpeak11 = TotalCostProfitTV.getText().toString();
                 Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
-                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+                t13.speak(toSpeak11, TextToSpeech.QUEUE_FLUSH, null);
 
-                 toSpeak = totalProfit.getText().toString();
+                String toSpeak12 = totalProfit.getText().toString();
                 Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
-                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+                t14.speak(toSpeak12, TextToSpeech.QUEUE_FLUSH, null);
 
             }
         });
@@ -220,7 +331,7 @@ public class OwnerActivity extends AppCompatActivity {
                                                 double inputCost = Double.parseDouble(data.child("cost").getValue().toString().trim());
                                                 String inputDetails = data.child("inputDetails").getValue().toString().trim();
 
-                                               TheTextDate.setText(data.child("theDate").getValue().toString().trim());
+                                                TheTextDate.setText(data.child("theDate").getValue().toString().trim());
                                                 output.setText(String.valueOf(totalReturn));
                                                 input.setText(inputDetails);
                                                 cost.setText(String.valueOf(inputCost));
@@ -291,7 +402,7 @@ public class OwnerActivity extends AppCompatActivity {
                                                 String inputDetails = data.child("inputDetails").getValue().toString().trim();
 
                                                 TheTextDate.setText(data.child("theDate").getValue().toString().trim());
-                                                output.setText(String.valueOf(totalReturn));
+                                                    output.setText(String.valueOf(totalReturn));
                                                 input.setText(inputDetails);
                                                 cost.setText(String.valueOf(inputCost));
 
@@ -359,11 +470,10 @@ public class OwnerActivity extends AppCompatActivity {
                                                 double inputCost = Double.parseDouble(data.child("cost").getValue().toString().trim());
                                                 String inputDetails = data.child("inputDetails").getValue().toString().trim();
 
-
-                                                TheTextDate.setText(data.child("theDate").getValue().toString().trim()); output.setText(String.valueOf(totalReturn));
-                                                input.setText(inputDetails);
+                                                TheTextDate.setText(data.child("theDate").getValue().toString().trim());
+                                                   input.setText(inputDetails);
                                                 cost.setText(String.valueOf(inputCost));
-
+                                                output.setText(String.valueOf(totalReturn));
                                                 //Calculate Revenue
                                                 double Therevenue = totalReturn - inputCost;
 
@@ -428,7 +538,7 @@ public class OwnerActivity extends AppCompatActivity {
                                                 String inputDetails = data.child("inputDetails").getValue().toString().trim();
 
                                                 TheTextDate.setText(data.child("theDate").getValue().toString().trim());
-                                                output.setText(String.valueOf(totalReturn));
+                                                       output.setText(String.valueOf(totalReturn));
                                                 input.setText(inputDetails);
                                                 cost.setText(String.valueOf(inputCost));
 
