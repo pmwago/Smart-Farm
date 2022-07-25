@@ -4,9 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Lovestrant/AndroidStudioProjects/Smart-Farm/app/src/main/res/layout/activity_dashboard.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/Lovestrant/AndroidStudioProjects/Smart-Farm/app/src/main/res/layout/activity_forgot.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Lovestrant/AndroidStudioProjects/Smart-Farm/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/Users/Lovestrant/AndroidStudioProjects/Smart-Farm/app/src/main/res/layout/activity_input.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/Lovestrant/AndroidStudioProjects/Smart-Farm/app/src/main/res/layout/activity_owner.xml" value="0.22" />
+        <entry key="..\:/Users/Lovestrant/AndroidStudioProjects/Smart-Farm/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Lovestrant/AndroidStudioProjects/Smart-Farm/app/src/main/res/layout/activity_owner.xml" value="0.25" />
+        <entry key="..\:/Users/Lovestrant/AndroidStudioProjects/Smart-Farm/app/src/main/res/layout/activity_register.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/peter/AndroidStudioProjects/SmartFarm/app/src/main/res/layout/activity_forgot.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/peter/AndroidStudioProjects/SmartFarm/app/src/main/res/layout/activity_home.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/peter/AndroidStudioProjects/SmartFarm/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />

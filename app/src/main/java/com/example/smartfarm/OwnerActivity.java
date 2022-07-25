@@ -27,8 +27,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Locale;
 
 public class OwnerActivity extends AppCompatActivity {
-    TextView textDate,totalCost,totalProfit,input,cost,output,revenue; Button activateStatus,listen;
-
+    TextView totalCost,totalProfit,input,cost,output,revenue; Button activateStatus,listen;
+    TextView date, TheTextDate,inputTV,inputCost,outputTV,TheRev,TotalCostTV,TotalCostProfitTV;
     SharedPreferences sharedPreferences;
     FirebaseDatabase database=FirebaseDatabase.getInstance();
     DatabaseReference ref,refl,reffw;
@@ -41,7 +41,16 @@ public class OwnerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_owner);
 
-        textDate = findViewById(R.id.textDate);
+        date = findViewById(R.id.date);
+        TheTextDate = findViewById(R.id.TheTextDate);
+        inputTV = findViewById(R.id.inputTV);
+        inputCost = findViewById(R.id.inputCost);
+        outputTV = findViewById(R.id.outputTV);
+        TheRev = findViewById(R.id.TheRev);
+        TotalCostTV = findViewById(R.id.TotalCostTV);
+        TotalCostProfitTV = findViewById(R.id.TotalCostProfitTV);
+
+
         totalCost = findViewById(R.id.totalCost);
         totalProfit = findViewById(R.id.totalProfit);
         input = findViewById(R.id.input);
@@ -71,10 +80,62 @@ public class OwnerActivity extends AppCompatActivity {
         listen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String toSpeak = totalProfit.getText().toString();
+                String toSpeak = date.getText().toString();
                 Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
                 t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+
+                toSpeak = TheTextDate.getText().toString();
+                Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
+                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+
+                 toSpeak = inputTV.getText().toString();
+                Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
+                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+
+                 toSpeak = input.getText().toString();
+                Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
+                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+
+                 toSpeak = inputCost.getText().toString();
+                Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
+                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+
+                 toSpeak = cost.getText().toString();
+                Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
+                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+
+                 toSpeak = outputTV.getText().toString();
+                Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
+                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+
+                 toSpeak = output.getText().toString();
+                Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
+                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+
+                 toSpeak = TheRev.getText().toString();
+                Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
+                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+
+                 toSpeak = revenue.getText().toString();
+                Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
+                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+
+                 toSpeak = TotalCostTV.getText().toString();
+                Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
+                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+
+                 toSpeak = totalCost.getText().toString();
+                Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
+                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+
+                 toSpeak = TotalCostProfitTV.getText().toString();
+                Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
+                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+
+                 toSpeak = totalProfit.getText().toString();
+                Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
+                t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+
             }
         });
 
@@ -159,7 +220,7 @@ public class OwnerActivity extends AppCompatActivity {
                                                 double inputCost = Double.parseDouble(data.child("cost").getValue().toString().trim());
                                                 String inputDetails = data.child("inputDetails").getValue().toString().trim();
 
-
+                                               TheTextDate.setText(data.child("theDate").getValue().toString().trim());
                                                 output.setText(String.valueOf(totalReturn));
                                                 input.setText(inputDetails);
                                                 cost.setText(String.valueOf(inputCost));
@@ -229,7 +290,7 @@ public class OwnerActivity extends AppCompatActivity {
                                                 double inputCost = Double.parseDouble(data.child("cost").getValue().toString().trim());
                                                 String inputDetails = data.child("inputDetails").getValue().toString().trim();
 
-
+                                                TheTextDate.setText(data.child("theDate").getValue().toString().trim());
                                                 output.setText(String.valueOf(totalReturn));
                                                 input.setText(inputDetails);
                                                 cost.setText(String.valueOf(inputCost));
@@ -299,7 +360,7 @@ public class OwnerActivity extends AppCompatActivity {
                                                 String inputDetails = data.child("inputDetails").getValue().toString().trim();
 
 
-                                                output.setText(String.valueOf(totalReturn));
+                                                TheTextDate.setText(data.child("theDate").getValue().toString().trim()); output.setText(String.valueOf(totalReturn));
                                                 input.setText(inputDetails);
                                                 cost.setText(String.valueOf(inputCost));
 
@@ -366,7 +427,7 @@ public class OwnerActivity extends AppCompatActivity {
                                                 double inputCost = Double.parseDouble(data.child("cost").getValue().toString().trim());
                                                 String inputDetails = data.child("inputDetails").getValue().toString().trim();
 
-
+                                                TheTextDate.setText(data.child("theDate").getValue().toString().trim());
                                                 output.setText(String.valueOf(totalReturn));
                                                 input.setText(inputDetails);
                                                 cost.setText(String.valueOf(inputCost));
